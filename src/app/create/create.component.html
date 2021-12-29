@@ -1,0 +1,114 @@
+<p>create works!</p>
+
+<h2>Get Request  (https://reqres.in/api/users/data) </h2>
+
+<div class=" ">
+    <h3 class="mb-3 text-center emp">Users</h3>
+    
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr >
+                    <th  scope="">Id</th>
+                    <th  scope="">Email</th>
+                    <th  scope="">First Name</th>
+                    <th  scope="">Last Name</th>
+                    <th  scope="">Avatar</th>
+                </tr>
+            </thead>
+
+            <tbody><!--userlsit['data'] is the data array containing  userdetails and it is of arraytype 
+            ngfor can only iterate through arraytypes-->
+                
+                <tr *ngFor = "let user of userlist['data']">
+                    <td >{{user.id}}</td>
+                    <td >{{user.email}}</td>
+                    <td >{{user.first_name}}</td>
+                    <td >{{user.last_name}}</td>
+                    <td  >{{user.avatar}}</td>
+                    
+                    <!--<td >
+                        <span class="edit" routerLink="/edit/{{employee.id}}">Edit</span>
+                        
+                        <span class="edit" (click) = "deleteEmployee(employee.id)">Delete</span>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+    
+</div>
+
+<!-- To view a single user-->
+<ul>
+    <li >ID : {{suser['data'].id}} </li><!--have topass prperty data to the object suser to access id,email...-->
+    <li>Email: {{suser['data'].email}} </li>
+    <li>First Name : {{suser['data'].first_name}} </li>
+    <li>Last Name: {{suser['data'].last_name}} </li>
+    <li>Avatar :{{suser['data'].avatar}} </li>
+</ul>
+
+<!--To create a user-->
+<div class="row">
+
+    <div class="col-lg-4">
+  
+      <h4>Create New Contact</h4>
+      <form  (submit)= "adduser(adduserForm)" #adduserForm = "ngForm" >
+          <div class="form-row">
+  
+            <div class="col-md-6 mb-3">
+              <label for="validationserver01">First Name</label>
+              <input type="text" class="form-control" value="Enter first Name" required name="fname" ngModel>
+            </div>
+  
+            <div class="col-md-6 mb-3">
+              <label for="validationserver02">Last Name</label>
+              <input type="text" class="form-control" value="Enter last name" required name="lname" ngModel>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="validationserver01"> Email</label>
+                <input type="text" class="form-control" value="Enter Name" required name="email" ngModel>
+              </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="validationserver01"> Avatar</label>
+                <input type="text" class="form-control" value="Enter Name" required name="ava" ngModel>
+            </div>
+  
+          </div>
+  
+        <button class="btn btn-primary" type="submit">Submit Contact</button>
+  
+        </form>
+  
+      <div *ngIf="created" >Contact Created Successfully</div>
+  
+    </div>
+
+
+    <h3>POST DATA RETURNED</h3>
+<p> {{newuser.id}} </p>
+<p> {{newuser.first_name}} </p>
+<p> {{newuser.last_name}} </p>
+<p> {{newuser.email}} </p>
+<p> {{newuser.avatar}} </p>
+
+<!--to update user -->
+
+<h3>PUT DATA RETURNED</h3>
+<p> {{upduser.id}} </p>
+<p> {{upduser.first_name}} </p>
+<p> {{upduser.last_name}} </p>
+<p> {{upduser.email}} </p>
+<p> {{upduser.avatar}} </p>
+
+<!--To Patch User-->
+<h3>PATCH USER RETURNED</h3>
+<p> {{patchuser?.id}} </p>
+<p> {{patchuser?.first_name}} </p>
+<p> {{patchuser?.last_name}} </p>
+<p> {{patchuser?.email}} </p>
+<p> {{patchuser?.avatar}} </p>
+
+<!--To delete user-->
+<h5> {{delmsg}} </h5>

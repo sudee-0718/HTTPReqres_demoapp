@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';//must import this for bootatrap functionalities to work
+
+.emp{
+    padding: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: rgb(191, 166, 214);
+    border:3px solid rgb(68, 30, 104);
+    border-radius: 40px;
+    font-variant:small-caps;
+    font-weight: bold;
+}
+
+thead{
+    background-color: black;
+    color: cornsilk;
+}
+
+tbody{
+    background-color: rgb(77, 119, 119);
+    color: floralwhite;
+}
+
+th{
+    padding: 10px;
+}
+
+td{
+    padding: 20px;
+}
